@@ -6,13 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index",
-    "serve": "serve -s dist -p 80"
+    "serve": "node index.js"
   },
   "author": "Rafael Mourouzidis",
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.1",
     "nodemon": "^3.1.7",
-    "serve": "^14.2.4"
   }
 }

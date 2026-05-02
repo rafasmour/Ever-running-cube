@@ -1,5 +1,5 @@
 services:
-  app:
+  cube:
     build:
       context: ./
       dockerfile: Dockerfile
@@ -7,12 +7,12 @@ services:
     env_file: ".env"
     labels:
       - traefik.enable=true
-      - traefik.http.routers.changelog_app.rule=Host(`cube.${DOMAIN}`)
-      - traefik.http.routers.changelog_app.entrypoints=websecure
-      - traefik.http.routers.changelog_app.tls.certresolver=myresolver
+      - traefik.http.routers.cube.rule=Host(`cube.${DOMAIN}`)
+      - traefik.http.routers.cube.entrypoints=websecure
+      - traefik.http.routers.cube.tls.certresolver=myresolver
     networks:
       - webgateway
-    command: "sh -c \"npm run build && npm run serve\""
+    command: "node index.js"
     volumes:
       - ./:/app
     working_dir: /app

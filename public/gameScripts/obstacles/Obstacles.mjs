@@ -81,8 +81,10 @@ export class Obstacles {
         } 
         for(let i = 0; i < this.obstacles.length; i++){
             this.obstacles[i].x -=this.speed;
-            if(this.obstacles[i].x + this.obstacles[i].width <=0)
-                this.remove(i)
+            if(this.obstacles[i].x + this.obstacles[i].width <=0){
+                this.remove(i--);
+                continue;
+            }
             if(this.obstacles[i].type == 'floating'){
                 this.obstacles[i].float()
             }
