@@ -1,14 +1,14 @@
 services:
-  app:
+  cube:
     build:
       context: ./
       dockerfile: Dockerfile
     env_file: ".env"
     labels:
       - traefik.enable=true
-      - traefik.http.routers.changelog_app.rule=Host(`cube.${DOMAIN}`)
-      - traefik.http.routers.changelog_app.entrypoints=websecure
-      - traefik.http.routers.changelog_app.tls=true
+      - traefik.http.routers.cube.rule=Host(`cube.${DOMAIN}`)
+      - traefik.http.routers.cube.entrypoints=websecure
+      - traefik.http.routers.cube.tls=true
     networks:
       - webgateway
     command: "npm run start"
