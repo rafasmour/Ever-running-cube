@@ -46,10 +46,10 @@ jobs:
           "DOMAIN='${DOMAIN}' NETWORK='${NETWORK}' bash -s" << 'EOF'
           set -x
           cd /home/${USER}/ || exit 1
-          if [ ! -d "github-auto-changelog" ]; then
-          git clone https://github.com/rafasmour/github-auto-changelog.git|| exit 1
+          if [ ! -d "Ever-running-cube" ]; then
+          git clone https://github.com/rafasmour/Ever-running-cube.git|| exit 1
           fi
-          cd github-auto-changelog || exit 1
+          cd Ever-running-cube || exit 1
           git pull || exit 1
           rm .env
           touch .env
