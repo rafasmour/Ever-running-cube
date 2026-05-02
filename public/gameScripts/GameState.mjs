@@ -29,6 +29,7 @@ function drawGame(drawPlayer) {
         player.draw(draw.ctx);
     obstacles.draw(draw.ctx)
     animation.animate(draw.ctx);
+    draw.drawControls();
 }
 function startGame() {
     player.resize(fixedWidth, fixedHeight, canvasHeight)
@@ -68,9 +69,8 @@ function updateGame() {
 function drawGameOver(){
     drawGame(false)
     draw.gameOver(obstacles.score)
-    animation.animate(draw.ctx);
-    if(animation.disintegrate.parts.length == 0)
-        return
+    if(animation.disintegrate.parts.length > 0)
+        animation.animate(draw.ctx);
     requestAnimationFrame(drawGameOver)
 }
 function gameOver(){
