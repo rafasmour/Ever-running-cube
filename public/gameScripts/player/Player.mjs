@@ -61,10 +61,10 @@ export class Player {
                 }
         }
     }
-    update(gravity, canvasWidth, canvasHeight){
+    update(gravity, canvasWidth, canvasHeight, dt = 1){
         if(this.isJumping || this.isDoubleJumping){
-            this.dy += gravity;
-            this.y += this.dy;
+            this.dy += gravity * dt;
+            this.y += this.dy * dt;
             if (this.y >= canvasHeight - this.height) {
                 this.isJumping = false;
                 this.isDoubleJumping = false;
@@ -72,7 +72,7 @@ export class Player {
                 this.y = canvasHeight - this.height;
             }
         }
-        this.bullet.update(canvasWidth);
+        this.bullet.update(canvasWidth, dt);
     }
     playerGradient(ctx) {
         const gradient = ctx.createLinearGradient(this.x, this.y, this.width, this.height);

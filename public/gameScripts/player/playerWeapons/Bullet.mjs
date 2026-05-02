@@ -21,9 +21,9 @@ export class Bullet {
     removeBullet(bullet) {
         this.bullets.splice(bullet, 1);
     }
-    update(canvasWidth){
+    update(canvasWidth, dt = 1){
         for(let i = 0; i < this.bullets.length; i++){
-            this.bullets[i].x += this.bulletSpeed
+            this.bullets[i].x += this.bulletSpeed * dt
             if(this.bullets[i].x > canvasWidth)
                 this.removeBullet(this.bullets[i])
         }
