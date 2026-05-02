@@ -1,0 +1,17 @@
+*
+
+!.github
+!.github/**/*
+!public
+!public/**/*
+!.gitignore
+!index.html
+!index.js
+!package.json
+!package-lock.json
+!Dockerfile
+!.env.example
+!docker-compose.dev.yml
+!docker-compose.prod.yml
+!LICENSE
+!README.md

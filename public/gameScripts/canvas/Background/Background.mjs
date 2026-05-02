@@ -1,6 +1,6 @@
 import { Mountain } from "./elements/Mountain.mjs";
 import { Sea } from "./elements/Sea.mjs";
-import { Sky } from "./elements/sky.mjs";
+import { Sky } from "./elements/Sky.mjs";
 import { Sun } from "./elements/Sun.mjs";
 
 export class Background {

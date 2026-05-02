@@ -90,14 +90,19 @@ export class Obstacles {
         this.updateSpawnInterval()
     }
     drawScore(ctx){
-        ctx.shadowColor = '';
-        ctx.shadowBlur = 0;                    
-        ctx.shadowOffsetX = 0;                  
-        ctx.shadowOffsetY = 0; 
-        ctx.font = '1vw "Press Start 2P", sans-serif';
+        ctx.save();
+        ctx.textAlign = 'right';
+        ctx.font = `${ctx.canvas.height * 0.06}px "Press Start 2P"`;
+        ctx.shadowColor = 'rgba(0,0,0,0.8)';
+        ctx.shadowBlur = 6;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.strokeStyle = 'rgba(0,0,0,0.9)';
+        ctx.lineWidth = 3;
+        ctx.strokeText(`Score: ${this.score}`, ctx.canvas.width - 10, ctx.canvas.height * 0.08);
         ctx.fillStyle = 'white';
-        ctx.fillText(`score: ${this.score}`,20,50);
-        // this.canvas.style.borderColor = ctx.fillStyle;
+        ctx.fillText(`Score: ${this.score}`, ctx.canvas.width - 10, ctx.canvas.height * 0.08);
+        ctx.restore();
     }
     draw(ctx){
         this.obstacles.forEach((obstacle) => {
