@@ -10,8 +10,8 @@ export class Background {
         this.sky = new Sky(canvasHeight);
         this.sun = new Sun(canvasWidth, canvasHeight);
     }
-    update(canvasWidth, canvasHeight, fixedWidth, fixedHeight){
-        this.mountain.update(canvasWidth, canvasHeight, fixedWidth, fixedHeight)
+    update(canvasWidth, canvasHeight, fixedWidth, fixedHeight, dt = 1){
+        this.mountain.update(canvasWidth, canvasHeight, fixedWidth, fixedHeight, dt)
         this.sun.update(canvasWidth, canvasHeight)
     }
     

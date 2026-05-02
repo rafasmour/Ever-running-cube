@@ -35,10 +35,10 @@ export class Mountain {
             this.lastSpawnTime = currentTime;
         }
     }
-    update(canvasWidth, canvasHeight, fixedWidth, fixedHeight){
+    update(canvasWidth, canvasHeight, fixedWidth, fixedHeight, dt = 1){
         this.spawnMountain(canvasWidth, canvasHeight, fixedWidth, fixedHeight);
         for(let i = 0; i < this.mountains.length; i++){
-            this.mountains[i].x -= this.mountainSpeed
+            this.mountains[i].x -= this.mountainSpeed * dt
             if(this.mountains[i].x + this.mountains.width <= 0)
                 this.destroyMountain(this.mountains[i])
         }

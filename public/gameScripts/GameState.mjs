@@ -23,6 +23,7 @@ const animation = new AnimationMain();
 const collide = Collision;
 //boolean
 let gameRunning;
+let lastFrameTime = 0;
 function drawGame(drawPlayer) {
     background.draw(draw.ctx, canvasWidth, canvasHeight, fixedWidth, fixedHeight);
     if(drawPlayer)
@@ -39,10 +40,12 @@ function startGame() {
     gameRunning = requestAnimationFrame(updateGame);
 }
 
-function updateGame() {
-    player.update(draw.gravity, canvasWidth, canvasHeight);
-    obstacles.update(canvasWidth, canvasHeight, fixedWidth, fixedHeight)
-    background.update(canvasWidth, canvasHeight, fixedWidth, fixedHeight);
+function updateGame(timestamp) {
+    const dt = Math.min((timestamp - lastFrameTime) / (1000 / 60), 3);
+    lastFrameTime = timestamp;
+    player.update(draw.gravity, canvasWidth, canvasHeight, dt);
+    obstacles.update(canvasWidth, canvasHeight, fixedWidth, fixedHeight, dt)
+    background.update(canvasWidth, canvasHeight, fixedWidth, fixedHeight, dt);
     for(const obstacle in obstacles.obstacles){
         if(collide(player,obstacles.obstacles[obstacle])){
             gameOver();
